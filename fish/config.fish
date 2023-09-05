@@ -15,9 +15,10 @@ function fish_prompt
     set -l reset_color (set_color normal)
     set -l current_dir (pwd | sed "s|^$HOME|~|")
     set -l color_magenta (set_color magenta)
-    if test  -d "$PWD/.git"
+    if test (git -C . rev-parse --is-inside-work-tree) = "true"
+        set -l git_icon \uf126
         set -l current_branch (git branch --show-current)
-        echo -n -s "$color_green$username $color_cyan$current_dir$color_magenta($current_branch)$reset_color > "
+        echo -n -s "$color_green$username $color_cyan$current_dir$reset_color on $color_magenta $git_icon $current_branch$reset_color > "
     else
         echo -n -s "$color_green$username $color_cyan$current_dir$reset_color > "
     end
