@@ -1,0 +1,4 @@
+# symbolic links to my config paths
+ln -s  "$HOME/dotfiles/bash/.bashrc" "$HOME/.bashrc"
+ln -s "$HOME/dotfiles/fish/config.fish" "$HOME/.config/fish/config.fish"
+ln -s  "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
