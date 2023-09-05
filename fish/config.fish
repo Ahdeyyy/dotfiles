@@ -18,8 +18,10 @@ function fish_prompt
     if git -C . rev-parse --is-inside-work-tree > /dev/null 2>&1
         set -l git_icon \uf126
         set -l current_branch (git branch --show-current)
-        echo -n -s "$color_green$username $color_cyan$current_dir$reset_color on $color_magenta $git_icon $current_branch$reset_color > "
+        echo -e -n -s "$color_green$username $color_cyan$current_dir$reset_color on $color_magenta $git_icon $current_branch$reset_color\n"
+        echo "> "
     else
-        echo -n -s "$color_green$username $color_cyan$current_dir$reset_color > "
+        echo -e -n -s "$color_green$username $color_cyan$current_dir$reset_color\n"
+        echo   "> "
     end
 end
