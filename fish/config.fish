@@ -7,6 +7,8 @@ if status is-interactive
     alias gp="git pull && git push"
     alias grep="rg"
     set -x PATH $PATH $HOME/go/bin
+    set -x N_PREFIX $HOME/.n
+    set -x PATH $N_PREFIX/bin $PATH 
 end
 function fish_prompt
     set -l username "ahdeyy"
@@ -25,3 +27,9 @@ function fish_prompt
         echo   "> "
     end
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+~/.config/fish/config.fish
+starship init fish | source
